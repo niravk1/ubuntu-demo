@@ -14,6 +14,12 @@ echo 'mkdir -p /var/lock/apache2' >> /root/run_apache.sh && \
 echo '/usr/sbin/apache2 -D FOREGROUND' >> /root/run_apache.sh && \
 chmod 755 /root/run_apache.sh
 
+# Install nodejs version 16 for SCA
+RUN set -x \
+    && curl -sL 'https://deb.nodesource.com/setup_16.x' | bash - \
+    && apt-get -y install nodejs \
+    && ln -s /usr/bin/nodejs /usr/local/bin/node
+    
 EXPOSE 80
 
 CMD /root/run_apache.sh
