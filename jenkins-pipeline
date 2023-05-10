@@ -1,7 +1,7 @@
 pipeline {
     environment {
-        registry = "snicholsonqualys/demo-builds"
-        registryCredential = 'dockerhub'
+        registry = "niravk1/qcsdemo"
+        registryCredential = 'nkamdar_dockerhub'
     }
 
     agent any
@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                git 'https://github.com/snicholson-qualys/ubuntu-demo.git'
+                git 'https://github.com/niravk1/ubuntu-demo.git'
             }
         }
 
